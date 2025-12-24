@@ -8,6 +8,9 @@ PerformancePlus is a Java-based web application designed to help organizations t
 - **Employee View**: Update progress on active goals and view feedback from managers.
 - **Live Sync**: Automatic session refresh ensures progress bars update immediately upon changes.
 
+## 📺 Project Demo
+Watch the system in action: https://youtu.be/0kiP5wumt8c
+
 ## 🛠️ Technology Stack
 - **Backend**: Java Servlets, JSP
 - **Database**: MySQL (SQLyog)
