@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Assign KPI | PerformancePlus</title>
+    <title>Assign Task | PerformancePlus</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         /* Darkish Theme Customizations */
@@ -13,7 +13,7 @@
         .text-darkish {
             color: #212529 !important;
         }
-        /* Primary button matching the blackish header */
+       
         .btn-darkish {
             background-color: #212529 !important;
             border-color: #212529 !important;
@@ -47,7 +47,7 @@
                 </div>
                 
                 <div class="mb-3">
-                    <label class="form-label fw-bold">KPI Title</label>
+                    <label class="form-label fw-bold">Task Title</label>
                     <input type="text" name="title" class="form-control" required placeholder="e.g. Sales Target">
                 </div>
 
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-darkish py-2 fw-bold">Assign KPI</button>
+                    <button type="submit" class="btn btn-darkish py-2 fw-bold">Assign Task</button>
                     <a href="dashboard.jsp" class="btn btn-outline-secondary">Back</a>
                 </div>
             </form>

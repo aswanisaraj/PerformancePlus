@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
 
         try (Connection con = DBConnection.getConnection()) {
 
-            // --- 1. HANDLE REFRESH LOGIC (For Employee Progress Updates) ---
+            // --- 1. HANDLING REFRESH LOGIC (For Employee Progress Updates) ---
             if ("refresh".equals(action)) {
                 Integer currentUserId = (Integer) session.getAttribute("userId");
                 if (currentUserId != null) {
@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
                 }
             }
 
-            // --- 2. HANDLE ADMIN ACTION: ADD USER ---
+            // --- 2. HANDLING ADMIN ACTION: ADD USER ---
             if ("addUser".equals(action)) {
                 handleUserCreation(request, response, con);
                 return;
@@ -78,9 +78,9 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
-    // --- HELPER METHODS ---
 
-    // Load Goals and Feedback for Employees
+
+    // Loading Goals and Feedback for Employees
     private void loadEmployeeData(HttpSession session, Connection con, int userId) throws SQLException {
         List<Map<String, Object>> goals = new ArrayList<>();
         String kpiSql = "SELECT kpi_id, title, description, target_value, current_value, status FROM kpis WHERE employee_id = ?";
@@ -112,7 +112,7 @@ public class LoginServlet extends HttpServlet {
         session.setAttribute("employeeFeedback", feedback);
     }
 
-    // Load Statistics and User List for Admin
+    // Loading Statistics and User List for Admin
     private void loadAdminStats(HttpSession session, Connection con) throws SQLException {
         Statement st = con.createStatement();
         ResultSet rs1 = st.executeQuery("SELECT COUNT(*) FROM users");
@@ -206,6 +206,10 @@ public class LoginServlet extends HttpServlet {
             ps.setInt(4, r);
             ps.executeUpdate();
             AuditDAO.logAction((Integer) req.getSession().getAttribute("userId"), "Created User: " + u);
+            
+            // Refresh the management user list in session
+            loadManagementUserList(req.getSession(), con);
+            
             res.sendRedirect("manageUsers.jsp?msg=UserCreated");
         }
     }

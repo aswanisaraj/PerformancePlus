@@ -8,7 +8,7 @@
 <body class="bg-light d-flex align-items-center justify-content-center" style="min-height: 100vh;">
     <div class="container" style="max-width: 900px;">
         <div class="card shadow-lg p-4 border-0" style="border-radius: 15px;">
-            <h3 class="text-center mb-4 text-primary">Team Performance Report</h3>
+            <h3 class="text-center mb-4 text-dark">Team Performance Report</h3>
             <table class="table table-hover align-middle">
                 <thead class="table-dark">
                     <tr>
@@ -30,7 +30,7 @@
                             <td>
                                 <div class="progress" style="height: 10px;">
                                     <% int percent = (int)r.get("target") > 0 ? ((int)r.get("current") * 100 / (int)r.get("target")) : 0; %>
-                                    <div class="progress-bar" style="width: <%= percent %>%"></div>
+                                    <div class="progress-bar bg-dark" style="width: <%= percent %>%"></div>
                                 </div>
                                 <small><%= r.get("current") %> / <%= r.get("target") %></small>
                             </td>
